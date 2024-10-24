@@ -1,4 +1,7 @@
 import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".header__logo, .header__item, .header__icons img", {
@@ -55,5 +58,42 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1,
         ease: "sine.inOut",
         yoyoEase: true,
+    });
+
+    gsap.from(".plans__title, .plans__intro, .plans__text", {
+        y: 20,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: ".plans__content",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    gsap.from(".plans-animated-gif", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".plans__graph",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    gsap.from(".plans-video", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".plans__gif",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
     });
 });

@@ -7,9 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "build:css": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles.css --watch"
+    "build:css": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles.css"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +19,7 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
     "gsap": "^3.12.5"
   }
 }
