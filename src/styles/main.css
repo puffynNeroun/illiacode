@@ -1,1 +1,11 @@
-@import "reset.css";
+@import "variables.css";
+@import "components/header.css";
+
+
+
+
+
+body {
+    background: var(--primary-bg-color);
+}
+

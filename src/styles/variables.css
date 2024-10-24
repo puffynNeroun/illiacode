@@ -1,1 +1,9 @@
-/* Переменные CSS (цвета, шрифты) */
+:root {
+    --primary-bg-color: rgb(25, 29, 40);
+    --text-gray-color: rgb(187, 187, 187);
+    --text-yellow-color: rgb(253, 205, 121);
+    --font-size-text: 18px;
+    --font-weight-text: 400;
+    --fonst-size-title: 48px;
+    --font-weight-title: 700;
+}
