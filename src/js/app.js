@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { dataCards } from "@/data/dataCards";
+import axios from "axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +88,18 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleActions: "play none none none"
         }
     });
+    gsap.from(".inst__card1, .inst__card2, .inst__card3", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".inst__container",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        stagger: 0.3
+    });
 
     gsap.from(".plans-video", {
         opacity: 0,
@@ -146,4 +159,24 @@ document.addEventListener("DOMContentLoaded", () => {
             addCardBtn.disabled = true;
         }
     });
+    fetchInstagramData();
 });
+
+async function fetchInstagramData() {
+    try {
+        const response = await axios.get('https://graph.instagram.com/me', {
+            params: {
+                fields: 'id,username,followers_count,profile_picture_url',
+                access_token: 'YOUR_ACCESS_TOKEN'
+            }
+        });
+        const data = response.data;
+        const avatarUrl = data.profile_picture_url;
+        const followerCount = data.followers_count;
+
+        document.querySelector('.inst__avatar').style.backgroundImage = `url(${avatarUrl})`;
+        document.querySelector('.inst__subscribe').textContent = `${followerCount} FOLLOWERS`;
+    } catch (error) {
+        console.error("Ошибка при получении данных Instagram:", error);
+    }
+}
