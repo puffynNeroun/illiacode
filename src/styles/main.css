@@ -1,5 +1,6 @@
 @import "variables.css";
 @import "components/header.css";
+@import "components/welcome.css";
 
 
 
@@ -8,4 +9,6 @@
 body {
     background: var(--primary-bg-color);
 }
+
+
 

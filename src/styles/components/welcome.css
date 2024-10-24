@@ -1,0 +1,42 @@
+.welcome {
+}
+
+.welcome__container {
+}
+
+.welcome__content {
+}
+
+.welcome__intro {
+}
+
+
+.welcome__title span{
+    color: var(--text-yellow-color);
+}
+
+
+.welcome__text {
+}
+
+.welcome__button button {
+    padding: 27px 102px;
+    color: rgb(25, 29, 40);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 24px;
+
+    background: rgb(253, 205, 121);
+}
+
+.welcome__side {
+    color: rgb(138, 138, 138);
+    font-size: 14px;
+}
+
+.welcome__image img{
+    max-width: 470px;
+    height: 600px;
+
+}
