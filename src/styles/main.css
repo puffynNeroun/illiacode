@@ -3,12 +3,10 @@
 @import "components/welcome.css";
 @import "components/about-site.css";
 @import "components/plans.css";
-
+@import "components/inst.css";
+@import "components/history.css";
 @import "components/paypal.css";
 @import "components/footer.css";
-
-
-
 
 
 body {

@@ -1,9 +1,12 @@
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { dataCards } from "@/data/dataCards";
+import axios from "axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Header Animations
     gsap.from(".header__logo, .header__item, .header__icons img", {
         y: -20,
         opacity: 0,
@@ -11,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stagger: 0.2
     });
 
+    // Welcome Section
     gsap.from(".welcome__title", {
         x: -100,
         opacity: 0,
@@ -84,6 +88,18 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleActions: "play none none none"
         }
     });
+    gsap.from(".inst__card1, .inst__card2, .inst__card3", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".inst__container",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        stagger: 0.3
+    });
 
     gsap.from(".plans-video", {
         opacity: 0,
@@ -96,4 +112,71 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleActions: "play none none none"
         }
     });
+
+    const addCardBtn = document.getElementById("add-card-btn");
+    const newCardsContainer = document.getElementById("new-cards-container");
+    let cardIndex = 0;
+
+    const createCard = (cardData) => {
+        const newCard = document.createElement("div");
+        newCard.className = "history__card flex items-center gap-16";
+        newCard.innerHTML = `
+            <div class="history__card__image pr-4">
+                <img class="max-w-96" src="${cardData.imageUrl}" alt="${cardData.title}">
+            </div>
+            <div class="history__card__content">
+                <div class="history__card__header flex justify-between">
+                    <h3 class="history__card__title pb-4">${cardData.title}</h3>
+                    <p class="history__card__date text-mixin">${cardData.date}</p>
+                </div>
+                <p class="history__card__text text-mixin">${cardData.text}</p>
+            </div>
+        `;
+
+        newCardsContainer.appendChild(newCard);
+
+        gsap.fromTo(newCard, {
+            opacity: 0,
+            y: 20,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    };
+
+    if (dataCards.length > 0) {
+        createCard(dataCards[cardIndex]);
+        cardIndex++;
+    }
+
+    addCardBtn.addEventListener("click", () => {
+        if (cardIndex < dataCards.length) {
+            createCard(dataCards[cardIndex]);
+            cardIndex++;
+        } else {
+            addCardBtn.disabled = true;
+        }
+    });
+    fetchInstagramData();
 });
+
+async function fetchInstagramData() {
+    try {
+        const response = await axios.get('https://graph.instagram.com/me', {
+            params: {
+                fields: 'id,username,followers_count,profile_picture_url',
+                access_token: 'YOUR_ACCESS_TOKEN'
+            }
+        });
+        const data = response.data;
+        const avatarUrl = data.profile_picture_url;
+        const followerCount = data.followers_count;
+
+        document.querySelector('.inst__avatar').style.backgroundImage = `url(${avatarUrl})`;
+        document.querySelector('.inst__subscribe').textContent = `${followerCount} FOLLOWERS`;
+    } catch (error) {
+        console.error("Ошибка при получении данных Instagram:", error);
+    }
+}
