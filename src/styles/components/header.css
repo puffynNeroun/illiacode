@@ -1,0 +1,26 @@
+.header {
+}
+
+.header__container {
+}
+
+.header__logo {
+}
+
+.header__navbar {
+}
+
+.header__list {
+}
+
+.header__item a{
+    color: rgb(187, 187, 187);
+    font-size: var(--font-size-text);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-title);
+    line-height: 22px;
+}
+
+.header__icons {
+}
+
