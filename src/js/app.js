@@ -100,6 +100,33 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         stagger: 0.3
     });
+    gsap.from(".paypal__title, .paypal__img,  .paypal__text", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".paypal__container",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        stagger: 0.3
+    });
+
+
+    gsap.from(".footer__item, .footer__up", {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".footer__container",
+            start: "bottom bottom",
+            toggleActions: "play none none none"
+        },
+        stagger: 0.3
+    });
+
 
     gsap.from(".plans-video", {
         opacity: 0,
