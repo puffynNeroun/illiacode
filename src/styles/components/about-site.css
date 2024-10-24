@@ -1,0 +1,38 @@
+.about-site {
+
+}
+
+.container {
+}
+
+.about-site__container {
+}
+
+.about-site__inner-top {
+    gap: 128px;
+}
+
+.about-site__img img{
+    max-width: 85%;
+}
+
+.about-site__content {
+    max-width: 622px;
+}
+
+.about-site__title {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    line-height: 59px;
+    color: var(--text-gray-color);
+    padding-bottom: 33px;
+}
+
+.title__yl {
+    color: var(--text-yellow-color);
+}
+
+.about-site__subtitle {
+    color: var(--text-gray-color);
+    font-size: var(--font-size-text);
+}
