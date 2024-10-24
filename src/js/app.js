@@ -48,14 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         delay: 0.5,
     });
 
-    gsap.from(".about-site__img img", {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power2.out",
-        delay: 0.3,
-    });
-
     gsap.to(".about-site__img img", {
         rotation: 3,
         yoyo: true,

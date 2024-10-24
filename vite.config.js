@@ -1,18 +1,24 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-    base: '/illiacode/', // Убедитесь, что 'illiacode' заменено на название вашего репозитория
+    base: './', // Убедитесь, что используется относительный путь
     build: {
-        outDir: 'dist', // Указывает, где будут сохраняться собранные файлы
+        outDir: 'dist',
         emptyOutDir: true,
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'), // Укажите путь к вашему `index.html`
+            },
+        },
     },
     server: {
-        open: true, // Автоматически открывает браузер при запуске
+        open: true,
         port: 5173,
     },
     resolve: {
         alias: {
-            '@': '/src', // Удобные пути к файлам внутри src
+            '@': resolve(__dirname, 'src'),
         },
     },
 });
