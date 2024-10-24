@@ -1,9 +1,11 @@
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { dataCards } from "@/data/dataCards";
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Header Animations
     gsap.from(".header__logo, .header__item, .header__icons img", {
         y: -20,
         opacity: 0,
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stagger: 0.2
     });
 
+    // Welcome Section
     gsap.from(".welcome__title", {
         x: -100,
         opacity: 0,
@@ -94,6 +97,53 @@ document.addEventListener("DOMContentLoaded", () => {
             trigger: ".plans__gif",
             start: "top 80%",
             toggleActions: "play none none none"
+        }
+    });
+
+    const addCardBtn = document.getElementById("add-card-btn");
+    const newCardsContainer = document.getElementById("new-cards-container");
+    let cardIndex = 0;
+
+    const createCard = (cardData) => {
+        const newCard = document.createElement("div");
+        newCard.className = "history__card flex items-center gap-16";
+        newCard.innerHTML = `
+            <div class="history__card__image pr-4">
+                <img class="max-w-96" src="${cardData.imageUrl}" alt="${cardData.title}">
+            </div>
+            <div class="history__card__content">
+                <div class="history__card__header flex justify-between">
+                    <h3 class="history__card__title pb-4">${cardData.title}</h3>
+                    <p class="history__card__date text-mixin">${cardData.date}</p>
+                </div>
+                <p class="history__card__text text-mixin">${cardData.text}</p>
+            </div>
+        `;
+
+        newCardsContainer.appendChild(newCard);
+
+        gsap.fromTo(newCard, {
+            opacity: 0,
+            y: 20,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    };
+
+    if (dataCards.length > 0) {
+        createCard(dataCards[cardIndex]);
+        cardIndex++;
+    }
+
+    addCardBtn.addEventListener("click", () => {
+        if (cardIndex < dataCards.length) {
+            createCard(dataCards[cardIndex]);
+            cardIndex++;
+        } else {
+            addCardBtn.disabled = true;
         }
     });
 });
