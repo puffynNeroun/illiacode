@@ -4,6 +4,21 @@
     --text-yellow-color: rgb(253, 205, 121);
     --font-size-text: 18px;
     --font-weight-text: 400;
-    --fonst-size-title: 48px;
+    --font-size-title: 48px;
     --font-weight-title: 700;
 }
+
+.title-mixin {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    color: var(--text-gray-color);
+    line-height: 59px;
+}
+
+.text-mixin {
+    font-size: var(--font-size-text);
+    font-weight: var(--font-weight-text);
+    color: var(--text-gray-color);
+    line-height: 22px;
+}
+
