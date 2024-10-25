@@ -11,3 +11,15 @@
     font-weight: 400;
     line-height: 133%;
 }
+
+@media (max-width: 576px) {
+    .footer__list {
+        gap: 10px;
+    }
+    .footer__icons {
+        align-items: center;
+    }
+    .footer__item a img {
+        width: 30px;
+    }
+}

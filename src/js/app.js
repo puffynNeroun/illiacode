@@ -7,14 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     // Header Animations
-    gsap.from(".header__logo, .header__item, .header__icons img", {
+    gsap.from(".header__logo, .header__item", {
         y: -20,
         opacity: 0,
         duration: 1,
         stagger: 0.2
     });
 
-    // Welcome Section
+
     gsap.from(".welcome__title", {
         x: -100,
         opacity: 0,
@@ -30,13 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.out"
     });
 
-    gsap.from(".welcome__image img", {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1.5,
-        delay: 0.6,
-        ease: "power2.out"
-    });
+    // Убрал анимацию прозрачности для более стабильного отображения
+    gsap.fromTo(".welcome__image img",
+        {
+            scale: 0.8,
+            opacity: 1, // Задал начальную непрозрачность
+        },
+        {
+            scale: 0.9,
+            duration: 1.5,
+            delay: 0.6,
+            ease: "power2.out"
+        }
+    );
+
 
     gsap.from(".about-site__title, .about-site__subtitle", {
         y: 20,
@@ -142,7 +149,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const addCardBtn = document.getElementById("add-card-btn");
     const newCardsContainer = document.getElementById("new-cards-container");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
     let cardIndex = 0;
+
+
+    menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("hidden");
+        navbar.classList.toggle("flex");
+    });
+
+    document.querySelector('.footer__up').addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector('#top').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 
     const createCard = (cardData) => {
         const newCard = document.createElement("div");

@@ -10,56 +10,73 @@
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body>
-<header class="header py-6">
-    <div class="header__container mx-auto container flex justify-between items-center">
-        <div class="header__logo">
-            <a href="#">
-                <img src="./public/assets/icons/logo.svg" alt="logo">
+<header class="header py-4 md:py-6 shadow-lg">
+    <div class="container mx-auto flex flex-wrap items-center justify-between">
+        <!-- Logo Section -->
+        <div class="flex justify-between items-center w-full md:w-auto">
+            <a href="#" class="block">
+                <img src="./public/assets/icons/logo.svg" alt="logo" class="w-20 md:w-28">
             </a>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-gray-700 hover:text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
-        <nav class="header__navbar">
-            <ul class="header__list flex items-center gap-8">
-                <li class="header__item"><a href="#">lorem</a></li>
-                <li class="header__item"><a href="#">lorem</a></li>
-                <li class="header__item"><a href="#">lorem</a></li>
-                <li class="header__item"><a href="#">lorem</a></li>
-                <li class="header__item"><a href="#">lorem</a></li>
+
+        <!-- Navigation Links -->
+        <nav id="navbar" class="w-full md:w-auto hidden md:flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-4 md:mt-0 transition-all duration-300 ease-in-out">
+            <ul class="flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full md:w-auto">
+                <li class="header__item"><a href="#" class="text-gray-700 hover:text-yellow-600 transition duration-300">Home</a></li>
+                <li class="header__item"><a href="#" class="text-gray-700 hover:text-yellow-600 transition duration-300">About</a></li>
+                <li class="header__item"><a href="#" class="text-gray-700 hover:text-yellow-600 transition duration-300">Services</a></li>
+                <li class="header__item"><a href="#" class="text-gray-700 hover:text-yellow-600 transition duration-300">Projects</a></li>
+                <li class="header__item"><a href="#" class="text-gray-700 hover:text-yellow-600 transition duration-300">Contact</a></li>
             </ul>
         </nav>
-        <div class="header__icons">
-            <ul class="header__list flex items-center gap-8">
-                <li class="header__item"><a href="#"><img class="w-12" src="./public/assets/icons/instagram.svg"
-                                                          alt="search"></a></li>
-                <li class="header__item"><a href="#"><img class="w-12" src="./public/assets/icons/whatsapp.svg"
-                                                          alt="cart"></a></li>
-                <li class="header__item"><a href="#"><img class="w-12" src="./public/assets/icons/email.svg" alt="user"></a>
-                </li>
+
+        <!-- Icons Section -->
+        <div class="header__icons w-full md:w-auto flex justify-center md:justify-end gap-6 mt-4 md:mt-0">
+            <ul class="flex items-center gap-4">
+                <li><a href="#"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/instagram.svg" alt="instagram"></a></li>
+                <li><a href="#"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/whatsapp.svg" alt="whatsapp"></a></li>
+                <li><a href="#"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/email.svg" alt="email"></a></li>
             </ul>
         </div>
     </div>
 </header>
+<div id="top"></div>
 <main class="main">
-    <section class="welcome py-16">
-        <div class="welcome__container flex justify-between gap-6 container mx-auto">
-            <div class="welcome__content max-w-3xl">
-                <h4 class="welcome__intro flex items-center space-x-2 text-gray-400 py-20">
+    <section class="welcome py-12 md:py-16">
+        <div class="welcome__container container mx-auto flex flex-col-reverse md:flex-row items-center md:justify-between gap-6">
+            <!-- Content Section -->
+            <div class="welcome__content max-w-full md:max-w-3xl text-center md:text-left px-4">
+                <h4 class="welcome__intro flex items-center justify-center md:justify-start space-x-2 text-gray-400 py-4 md:py-6">
                     <span class="block w-8 border-t border-gray-500"></span>
                     <span class="uppercase tracking-wide">Hello</span>
                 </h4>
-                <h1 class="welcome__title title-mixin font-bold text-5xl"><span>Lorem ipsum</span> dolor sit amet,
-                    consectetur.</h1>
-                <p class="welcome__text text-mixin max-w-xl pt-12">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Consectetur, praesentium?</p>
-                <div class="welcome__button pt-12 mx-auto">
-                    <button>Weitere Details</button>
+                <h1 class="welcome__title title-mixin font-bold text-3xl md:text-5xl">
+                    <span>Lorem ipsum</span> dolor sit amet, consectetur.
+                </h1>
+                <p class="welcome__text text-mixin max-w-lg mx-auto md:mx-0 pt-6 md:pt-12">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, praesentium?
+                </p>
+                <div class="welcome__button pt-6 md:pt-12">
+                    <button class="px-6 md:px-12 py-3 text-sm md:text-base">Weitere Details</button>
                 </div>
             </div>
-            <div class="welcome__image flex items-end gap-3">
-                <p class="welcome__side text-right w-32">Du kannst hier nach <br>mir schauen.</p>
-                <img class="max-w-lg" src="./public/assets/images/videoBtn.png" alt="hero">
+            <!-- Image Section -->
+            <div class="welcome__image flex flex-col items-center md:items-start gap-3 px-4">
+                <p class="welcome__side md:text-left md:w-32">Du kannst hier nach <br>mir schauen.</p>
+                <img class="max-w-full md:max-w-lg h-auto object-cover" src="./public/assets/images/videoBtn.png" alt="hero">
+
             </div>
         </div>
     </section>
+
+
+
     <section class="about-site py-16">
         <div class="container about-site__container mx-auto">
             <div class="about-site__inner-top flex items-center">
@@ -67,7 +84,7 @@
                     <img src="./public/assets/images/imgElementSec2.png" alt="Animated Image">
                 </div>
                 <div class="about-site__content">
-                    <h2 class="about-site__title">Wie diese <span class="title__yl">Website entstanden ist.</span></h2>
+                    <h2 class="about-site__title title-mixin">Wie diese <span class="title__yl">Website entstanden ist.</span></h2>
                     <p class="about-site__subtitle">
                         Die Idee, eine Website zu erstellen, kam eine Woche vor der Messe in München. In meinem Kopf
                         entstanden viele Ideen, die ich an einem Ort bündeln wollte. Diese Website wurde nicht nur zu
@@ -103,21 +120,29 @@
             </div>
         </div>
     </section>
+
     <section class="history py-16">
         <div class="history__container container mx-auto">
-            <h2 class="history__title title-mixin pb-14">Über die <br><span>Vergangenheit</span></h2>
-            <div class="history__cards flex flex-col">
-                <div id="new-cards-container"></div>
+            <h2 class="history__title title-mixin pb-14">
+                Über die <span class="text-highlight">Vergangenheit</span>
+            </h2>
+            <div class="history__cards">
+                <div id="new-cards-container">
+                    <!-- Динамически добавляемые карточки -->
+                </div>
             </div>
             <div class="history__button flex justify-center pt-8">
-                <button id="add-card-btn">Weitere Details</button>
+                <button id="add-card-btn" class="history__btn">Weitere Details</button>
             </div>
         </div>
     </section>
 
 
+
+
+
     <section class="plans py-16">
-        <div class="plans__container container mx-auto flex justify-between">
+        <div class="plans__container container mx-auto flex flex-col md:flex-row items-center md:justify-between gap-12">
             <div class="plans__content gap-4">
                 <h2 class="plans__title">Pläne für die Zukunft</h2>
                 <h4 class="plans__intro flex items-center space-x-2 text-gray-400">
@@ -129,33 +154,37 @@
                     plane, ihn bis Ende Sommer 2025 abzuschließen. Um die Ergebnisse zu verbessern, arbeite ich auch mit
                     einem persönlichen Tutor.
                 </p>
-                <div class="plans__graph pt-32">
+                <div class="plans__graph pt-8 md:pt-32">
                     <img class="plans-animated-gif" src="./public/assets/images/Group%206.svg"
                          alt="Animated Growth Chart">
                 </div>
             </div>
             <div class="plans__gif">
-                <video class="plans-video " src="./public/assets/gif/doc_2024-10-24_22-29-31.mp4" autoplay loop
+                <video class="plans-video" src="./public/assets/gif/doc_2024-10-24_22-29-31.mp4" autoplay loop
                        muted></video>
             </div>
         </div>
     </section>
+
     <section class="inst py-16">
         <div class="container inst__container mx-auto">
-            <div class="inst__content flex items-center justify-center">
-                <div class="inst__card1">
+            <div class="inst__content flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16">
+                <div class="inst__card1 text-center md:text-left">
                     <h3 class="inst__title-card1">Mein Weg als Blogger:</h3>
                     <p class="inst__subtitle-card1">Als Unternehmer im Agrarsektor begann ich, mich als Blogger zu
                         entwickeln, indem ich Inhalte zum Thema 'Geld in der Landwirtschaft' erstellte. Hier im Süden
                         Deutschlands, am Fuße der Alpen, blühte die Idee des Bloggens in mir noch mehr auf.</p>
                 </div>
                 <div class="inst__card2">
-                    <div class="inst__avatar"></div>
+                    <div class="inst__avatar inst__element">
+                        <img class="inst__avatar-img" src="./public/assets/images/instAvajpg.jpg" alt="">
+                    </div>
+
                     <div class="inst__subscribe">
-                        0 FOLLOWERS
+                        170 FOLLOWERS
                     </div>
                 </div>
-                <div class="inst__card3">
+                <div class="inst__card3 text-center md:text-left">
                     <h3 class="inst__title-card3">
                         Themen, die ich behandle:
                     </h3>
@@ -166,22 +195,26 @@
             </div>
         </div>
     </section>
-    <section class="paypal">
+
+
+    <section class="paypal py-16">
         <div class="container paypal__container mx-auto">
-            <div class="paypal__content flex-col">
+            <div class="paypal__content flex flex-col items-center text-center">
                 <h2 class="paypal__title">
                     <span>Für die Entwicklung</span> des Projekts spenden
                 </h2>
-                <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_REAL_BUTTON_ID" target="_blank">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=8HLTDDBWYRVRL" target="_blank">
                     <img class="paypal__img" src="./public/assets/images/paypal.png" alt="paypal">
                 </a>
-                <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_REAL_BUTTON_ID" target="_blank">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=8HLTDDBWYRVRL" target="_blank">
                     <button class="paypal__btn">Unterstützen Sie das Projekt</button>
                 </a>
                 <p class="paypal__text">Das ist nicht nur ein Kauf, sondern eine Möglichkeit, meine zukünftigen Ideen und Projekte zu unterstützen.</p>
             </div>
         </div>
     </section>
+
+
 
     <footer class="footer py-6">
         <div class="container footer__container mx-auto">

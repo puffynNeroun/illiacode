@@ -1,82 +1,175 @@
+/* Основные стили */
 .about-site {
-
-}
-
-.container {
+    padding: 20px;
 }
 
 .about-site__container {
+    padding: 0 20px;
 }
 
+/* Внутренний верхний блок */
 .about-site__inner-top {
-    gap: 128px;
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.about-site__img img{
-    max-width: 85%;
+/* Стили для изображения */
+.about-site__img img {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
+/* Стили для контента */
 .about-site__content {
-    max-width: 622px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
 }
 
+/* Заголовок */
 .about-site__title {
-    font-size: var(--font-size-title);
-    font-weight: var(--font-weight-title);
-    line-height: 59px;
+    font-size: 28px;
+    line-height: 1.4;
+    padding-bottom: 20px;
     color: var(--text-gray-color);
-    padding-bottom: 33px;
 }
 
 .title__yl {
     color: var(--text-yellow-color);
 }
 
+/* Подзаголовок */
 .about-site__subtitle {
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--text-gray-color);
-    font-size: var(--font-size-text);
 }
 
+/* Карточки */
 .about-site__cards {
-    gap: 64px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 24px;
+    padding-top: 40px;
+    flex-wrap: wrap;
 }
 
-
+/* Стили для карточек */
 .about-site__card {
-    border-radius: 24px;
+    width: 100%;
+    max-width: 320px;
     background: rgb(253, 205, 121);
-    width: 420px;
-    height: 420px;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.about-site__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок карточки */
 .about-site__card-tittle {
     color: rgb(25, 29, 40);
-    font-size: 30px;
-    font-weight: var(--font-weight-title);
-    line-height: 37px;
-    max-width: 200px;
-
-    padding: 42px 0 64px 23px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    padding-bottom: 16px;
 }
 
+/* Подзаголовок карточки */
 .about-site__card-subtitle {
     color: rgb(75, 75, 75);
-    font-size: var(--font-size-text);
-    font-weight: var(--font-weight-text);
-    line-height: 133%;
-
-    padding: 0 0 152px 23px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    padding-bottom: 20px;
 }
 
+/* Кнопка */
 .about-site__btn {
     color: rgb(75, 75, 75);
-    font-family: Montserrat;
-    font-size: var(--font-weight-text);
-    font-weight: var(--font-weight-text);
-    line-height: 133%;
-    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    transition: color 0.3s ease;
+}
 
-    padding-left: 23px;
+.about-site__btn:hover {
+    color: rgb(50, 50, 50);
+}
+
+/* Медиа-запросы */
+@media (min-width: 768px) {
+    .about-site__inner-top {
+        gap: 64px;
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .about-site__content {
+        text-align: left;
+        max-width: 622px;
+    }
+
+    .about-site__cards {
+        flex-direction: row;
+        gap: 32px;
+        justify-content: space-around;
+    }
+
+    .about-site__card {
+        max-width: 300px;
+        padding: 30px;
+        text-align: left;
+        flex: 1;
+    }
+
+    .about-site__card-tittle {
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+
+    .about-site__card-subtitle {
+        font-size: 15px;
+        padding-bottom: 30px;
+    }
+
+    .about-site__btn {
+        padding-left: 0;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-site__cards {
+        gap: 64px;
+    }
+
+    .about-site__card {
+        max-width: 350px;
+        padding: 40px;
+    }
+
+    .about-site__card-tittle {
+        font-size: 22px;
+    }
+
+    .about-site__card-subtitle {
+        font-size: 16px;
+        padding-bottom: 40px;
+    }
+
+    .about-site__btn {
+        font-size: 16px;
+    }
 }

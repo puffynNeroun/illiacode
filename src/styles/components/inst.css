@@ -3,29 +3,34 @@
 }
 
 .inst__container {
+    padding: 20px;
 }
 
 .inst__content {
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .inst__title-card1 {
     color: var(--text-gray-color);
-    font-size: 30px;
+    font-size: 24px;
     font-weight: var(--font-weight-title);
-    line-height: 37px;
-    width: 220px;
+    line-height: 1.4;
+    width: 100%;
     padding-bottom: 16px;
+    text-align: center;
 }
 
 .inst__subtitle-card1 {
     color: var(--text-gray-color);
     font-size: var(--font-size-text);
     font-weight: var(--font-weight-text);
-    line-height: 133%;
-    width: 448px;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 448px;
+    text-align: center;
 }
 
 .inst__card2 {
@@ -37,22 +42,23 @@
 }
 
 .inst__element {
-    background: rgb(187, 187, 187);
-    background-size: cover;
-    background-position: center;
-    border-radius: 100%;
+    background: none; /* Удаление background */
+    border-radius: 50%; /* Оставляем закругленные края */
     width: 256px;
     height: 256px;
-    padding-bottom: 16px;
+    overflow: hidden; /* Скрыть лишние части изображения */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .inst__subscribe {
-    padding: 30px 120px;
+    padding: 15px 40px;
     border-radius: 24px;
     background: rgb(76, 76, 76);
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: var(--font-weight-title);
     text-transform: uppercase;
 }
@@ -64,25 +70,83 @@
     justify-content: center;
     border-radius: 24px;
     background: rgb(253, 205, 121);
-    width: 459px;
-    height: 328px;
+    width: 100%;
+    max-width: 459px;
+    padding: 20px;
 }
 
 .inst__title-card3 {
     color: rgb(25, 29, 40);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: var(--font-weight-title);
-    line-height: 29px;
+    line-height: 1.3;
     text-align: center;
-    width: 270px;
-    padding-bottom: 16px;
+    width: 100%;
+    max-width: 270px;
+    padding-bottom: 12px;
 }
 
 .inst__subtitle-card3 {
     color: rgb(25, 29, 40);
     font-size: var(--font-size-text);
     font-weight: var(--font-weight-text);
-    line-height: 133%;
+    line-height: 1.5;
     text-align: center;
-    width: 412px;
+    width: 100%;
+    max-width: 412px;
+}
+
+.inst__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+    .inst__content {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .inst__title-card1,
+    .inst__subtitle-card1 {
+        text-align: left;
+    }
+
+    .inst__element {
+        width: 200px;
+        height: 200px;
+    }
+
+    .inst__subscribe {
+        padding: 20px 60px;
+        font-size: 20px;
+    }
+
+    .inst__card3 {
+        max-width: 500px;
+    }
+
+    .inst__title-card3,
+    .inst__subtitle-card3 {
+        text-align: left;
+    }
+}
+
+/* Адаптация для десктопов */
+@media (min-width: 1024px) {
+    .inst__content {
+        gap: 100px;
+    }
+
+    .inst__element {
+        width: 256px;
+        height: 256px;
+    }
+
+    .inst__card3 {
+        width: 459px;
+        height: 328px;
+    }
 }
