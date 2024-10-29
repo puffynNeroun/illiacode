@@ -60,6 +60,9 @@
 /* Стили для карточек */
 .about-site__card {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 320px;
     background: rgb(253, 205, 121);
     border-radius: 16px;
@@ -89,7 +92,6 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
-    padding-bottom: 20px;
 }
 
 /* Кнопка */
@@ -142,7 +144,6 @@
 
     .about-site__card-subtitle {
         font-size: 15px;
-        padding-bottom: 30px;
     }
 
     .about-site__btn {
@@ -167,7 +168,6 @@
 
     .about-site__card-subtitle {
         font-size: 16px;
-        padding-bottom: 40px;
     }
 
     .about-site__btn {
