@@ -151,8 +151,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const newCardsContainer = document.getElementById("new-cards-container");
     const menuToggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar");
+    const videoThumbnail = document.getElementById('video-thumbnail');
+    const videoModal = document.getElementById('video-modal');
+    const closeModal = document.getElementById('close-modal');
+    const videoElement = document.getElementById('video-element');
+
     let cardIndex = 0;
 
+    // Событие для клика на изображение, чтобы открыть видео в модальном окне
+    videoThumbnail.addEventListener('click', () => {
+        videoModal.style.display = 'flex'; // Показываем модальное окно
+        videoElement.play(); // Проигрываем видео
+    });
+
+    // Событие для закрытия модального окна
+    closeModal.addEventListener('click', () => {
+        videoElement.pause(); // Останавливаем видео
+        videoElement.currentTime = 0; // Сбрасываем время видео на начало
+        videoModal.style.display = 'none'; // Скрываем модальное окно
+    });
+
+    // Закрытие модального окна по клику вне видео
+    videoModal.addEventListener('click', (event) => {
+        if (event.target === videoModal || event.target === videoModal.parentNode) {
+            videoElement.pause(); // Останавливаем видео
+            videoElement.currentTime = 0; // Сбрасываем время видео на начало
+            videoModal.style.display = 'none'; // Скрываем модальное окно
+        }
+    });
 
     menuToggle.addEventListener("click", () => {
         navbar.classList.toggle("hidden");

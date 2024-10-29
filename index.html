@@ -38,9 +38,9 @@
         <!-- Icons Section -->
         <div class="header__icons w-full md:w-auto flex justify-center md:justify-end gap-6 mt-4 md:mt-0">
             <ul class="flex items-center gap-4">
-                <li><a href="https://www.instagram.com/iliaafanasenko/profilecard/?igsh=MTZpamNldzF2YnlxNw=="><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/instagram.svg" alt="instagram"></a></li>
-                <li><a href="https://wa.me/+491703891749"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/whatsapp.svg" alt="whatsapp"></a></li>
-                <li><a href="mailto:ilia.biz2@gmail.com"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/email.svg" alt="email"></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/iliaafanasenko/profilecard/?igsh=MTZpamNldzF2YnlxNw=="><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/instagram.svg" alt="instagram"></a></li>
+                <li><a target="_blank" href="https://wa.me/+491703891749"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/whatsapp.svg" alt="whatsapp"></a></li>
+                <li><a target="_blank" href="mailto:ilia.biz2@gmail.com"><img class="w-6 md:w-8 hover:scale-110 transition duration-300" src="./public/assets/icons/email.svg" alt="email"></a></li>
             </ul>
         </div>
     </div>
@@ -66,14 +66,25 @@
                 </div>
             </div>
             <!-- Image Section -->
-            <a href="https://youtu.be/WZUPmTAIirw" class="welcome__image flex flex-col items-center md:items-start gap-3 px-4">
+            <a href="javascript:void(0);" class="welcome__image flex flex-col items-center md:items-start gap-3 px-4" id="video-thumbnail">
                 <p class="welcome__side md:text-left md:w-32">Du kannst hier nach <br>mir schauen.</p>
                 <img class="max-w-full md:max-w-lg h-auto object-cover" src="./public/assets/images/videoBtn.png" alt="hero">
-
             </a>
         </div>
     </section>
 
+    <!-- Modal Window -->
+    <div id="video-modal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75 z-50">
+        <div class="relative w-full max-w-3xl mx-auto flex flex-col justify-center items-center">
+            <button id="close-modal" class="text-white text-xl">&times;</button>
+            <div class="video-wrapper mt-4">
+                <video id="video-element" controls>
+                    <source src="./public/assets/videos/videforsity.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
 
 
     <section class="about-site py-16" id="aboutSite">
@@ -125,7 +136,6 @@
             </h2>
             <div class="history__cards">
                 <div id="new-cards-container">
-                    <!-- Динамически добавляемые карточки -->
                 </div>
             </div>
             <div class="history__button flex justify-center pt-8">

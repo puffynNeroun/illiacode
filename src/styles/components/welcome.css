@@ -23,36 +23,6 @@
     color: var(--text-yellow-color);
 }
 
-/* Адаптация для параграфа */
-.welcome__text {
-    max-width: 90%;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-    margin: 0 auto;
-}
-
-/* Адаптация для кнопки */
-.welcome__button {
-    text-align: center;
-}
-
-.welcome__button a {
-    padding: 15px 40px;
-    color: rgb(25, 29, 40);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 22px;
-    border-radius: 24px;
-    background: rgb(253, 205, 121);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.welcome__button button:hover {
-    background: rgb(250, 190, 100);
-    transform: translateY(-2px);
-}
-
 /* Стили для блока с изображением и текстом */
 .welcome__side {
     color: rgb(138, 138, 138);
@@ -76,6 +46,55 @@
     opacity: 0.9;
 }
 
+/* Стили для модального окна */
+#video-modal {
+    display: none; /* Изначально скрываем модальное окно */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video-element {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+@media (min-width: 768px) {
+    #close-modal {
+        top: 20px;
+        right: 20px;
+    }
+}
 /* Медиазапросы */
 @media (min-width: 768px) {
     .welcome__container {
