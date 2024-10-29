@@ -46,6 +46,26 @@
     opacity: 0.9;
 }
 
+.welcome__button {
+    text-align: center;
+}
+
+.welcome__button a {
+    padding: 15px 40px;
+    color: rgb(25, 29, 40);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 24px;
+    background: rgb(253, 205, 121);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.welcome__button button:hover {
+    background: rgb(250, 190, 100);
+    transform: translateY(-2px);
+}
+
 /* Стили для модального окна */
 #video-modal {
     display: none; /* Изначально скрываем модальное окно */
