@@ -124,6 +124,42 @@
     }
 }
 
+.history__button button {
+    color: rgb(25, 29, 40);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 24px;
+    padding: 15px 50px;
+    margin: 0 10px;
+    background: rgb(253, 205, 121);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.history__button button:hover {
+    background: rgb(250, 190, 100);
+    transform: translateY(-2px);
+}
+
+#collapse-card-btn {
+    background: transparent; /* Красный цвет для кнопки сворачивания */
+    border: 3px solid rgb(253, 205, 121);
+    color:rgb(253, 205, 121);
+}
+
+#collapse-card-btn:hover {
+    background: rgb(250, 190, 100); /* Темно-красный цвет при наведении */
+    color: rgb(25, 29, 40);
+}
+
+@media (max-width: 768px) {
+    .history__button button {
+        padding: 12px 40px;
+    }
+}
+
+
+
 @media (max-width: 576px) {
     .history__card {
         flex-direction: column;
